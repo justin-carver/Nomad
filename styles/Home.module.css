@@ -1,0 +1,9 @@
+.Home {
+	min-width: 320px;
+	width: 500px;
+}
+
+.Home__title {
+	font-family: 'Varela Round', sans-serif;
+	font-size: 30px;
+}
