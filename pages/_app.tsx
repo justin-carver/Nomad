@@ -1,12 +1,15 @@
-import '../styles/globals.css';
+import { SessionProvider } from 'next-auth/react';
 import { MantineProvider } from '@mantine/core';
 import type { AppProps } from 'next/app';
+import '../styles/globals.css';
 
 function App({ Component, pageProps }: AppProps) {
 	return (
-		<MantineProvider theme={{ colorScheme: 'dark' }} withCSSVariables withGlobalStyles withNormalizeCSS>
-			<Component {...pageProps} />
-		</MantineProvider>
+		<SessionProvider>
+			<MantineProvider theme={{ colorScheme: 'dark' }} withCSSVariables withGlobalStyles withNormalizeCSS>
+				<Component {...pageProps} />
+			</MantineProvider>
+		</SessionProvider>
 	);
 }
 
