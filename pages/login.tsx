@@ -1,13 +1,20 @@
-import { FormEvent, FormEventHandler, useState } from 'react';
+import { FormEvent, FormEventHandler, useState, useRef } from 'react';
 import { Text, Center, Container, Stack, Input, Box, Divider, Button, Space, Checkbox } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { IconUser, IconKey, IconLogin } from '@tabler/icons';
-import { useSession, signIn, signOut, getSession } from 'next-auth/react';
-import styles from '../styles/login.module.css';
-import { redirect } from 'next/dist/server/api-utils';
+import { useSession, signIn } from 'next-auth/react';
+import Router from 'next/router';
+import FullPageLoader from '../components/FullPageLoader';
+import styles from '../styles/Login.module.css';
+
+export const getServerSideProps = () => {
+	return { props: {} };
+};
 
 const Login = () => {
+	const { status } = useSession();
 	const [userInfo, setUserInfo] = useState({} as { username: string; password: string });
+	const errorRef = useRef(null);
 
 	const form = useForm({
 		initialValues: {
@@ -15,8 +22,6 @@ const Login = () => {
 			password: '',
 			rememberMe: false,
 		},
-
-		// https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
 		// This is only preliminary sanitization. You must complete your own additional auth!
 		validate: {
 			username: (value) => (/^\S+$/.test(value) ? null : 'Invalid Username'),
@@ -25,13 +30,26 @@ const Login = () => {
 
 	const loginHandler: FormEventHandler<HTMLFormElement> = async (e: FormEvent) => {
 		e ? e.preventDefault() : null;
+
 		const res = await signIn('credentials', {
 			username: userInfo.username,
 			password: userInfo.password,
 			redirect: false,
 		});
-		console.log(res);
+
+		if (res?.status !== 200) {
+			errorRef.current
+				? ((errorRef.current as HTMLElement).innerHTML = "Sorry! That didn't seem to work, please try again.")
+				: '';
+		} else {
+			errorRef.current ? ((errorRef.current as HTMLElement).innerHTML = '') : '';
+			Router.push('/dashboard');
+		}
 	};
+
+	if (status === 'loading' || status !== 'authenticated') {
+		return <FullPageLoader />;
+	}
 
 	return (
 		<Center className={styles['Login']}>
@@ -43,6 +61,7 @@ const Login = () => {
 					<Text size={'sm'} align={'center'}>
 						Please sign in with your account information below.
 					</Text>
+					<Text size={'xs'} align={'center'} color={'red'} ref={errorRef} className={'Login__error'}></Text>
 					<Stack className={styles['Login__formWrapper']} spacing={10}>
 						<form className={'Login__form'} onSubmit={loginHandler}>
 							<Input.Wrapper
@@ -65,8 +84,7 @@ const Login = () => {
 								label={'Password'}
 								onChange={(e: any) => {
 									setUserInfo((prev) => Object.assign(prev, { password: e.target.value }));
-								}}
-								error={''}>
+								}}>
 								<Input
 									icon={<IconKey size={16} />}
 									type={'password'}
