@@ -1,0 +1,10 @@
+.FullPageLoader {
+	min-width: 100vw;
+	min-height: 100vh;
+	background-color: var(--mantine-color-dark-7);
+}
+
+.FullPageLoader__loader {
+	width: fit-content;
+	height: fit-content;
+}

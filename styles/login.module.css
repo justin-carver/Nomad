@@ -1,0 +1,29 @@
+.Login {
+	min-height: 100vh;
+	min-width: 100vw;
+}
+.Login__container {
+	-moz-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.35);
+	background-color: var(--mantine-color-dark-7);
+	border-radius: 5px;
+	border: 1px solid var(--mantine-color-dark-5);
+	box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.35);
+	min-height: 320px;
+	min-width: 320px;
+	padding: 40px;
+	width: 400px;
+}
+.Login__formWrapper form {
+	min-width: 100%;
+}
+.Login__form--loginButton {
+	margin: 20px 0 10px 0;
+}
+.Login__form--username,
+.Login__form--password {
+	margin-bottom: 10px;
+}
+.Login__github {
+	width: 100%;
+}
