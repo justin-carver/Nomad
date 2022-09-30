@@ -3,7 +3,13 @@ import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import FullPageLoader from './FullPageLoader';
 
-export default function PrivateRoute({ protectedRoutes, children }: { protectedRoutes: string[]; children: any }) {
+export default function PrivateRoute({
+	protectedRoutes,
+	children,
+}: {
+	protectedRoutes: string[];
+	children: any;
+}) {
 	const Router = useRouter();
 	const { status } = useSession();
 

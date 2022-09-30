@@ -6,7 +6,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/justin-carver/Nomad">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://i.imgur.com/gE8itPl.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Nomad</h3>
@@ -25,31 +25,17 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+- [About The Project](#about-the-project)
+  - [Features](#features)
+  - [Built With](#built-with)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [FAQ](#faq)
+- [Project / Fork Ideas](#project--fork-ideas)
+- [License](#license)
+- [Contact](#contact)
 
 <!-- ABOUT THE PROJECT -->
 
@@ -57,52 +43,61 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Nomad is a simple, lightweight, customizable, blogging system built on `Next.js` and the `Mantine` component library. The core post database systems is built off of `postgreSQL`, while using `next-auth` alongside `encrypted JWTs` to handle administrative operations within the CMS.
+Nomad is a simple, lightweight, customizable, blogging system built on `Next.js` and the `Mantine` component library. The core post database systems is built off of `postgreSQL` with a `prisma` adapter, while using `next-auth` credentials alongside `encrypted JWTs` to handle administrative operations within the CMS.
+
+The purpose of this project is to help beginners understand systems design within full stack applications, namely this Content Management System (CMS). The CMS Nomad is utilizing is simple and intuitive, yet teaches basic DevOps and security fundamentals. As well, this repo will serve as a teaching point to those looking to learn:
+
+-   SEO / Marketing
+-   Database Management
+    -   PostgreSQL
+    -   Prisma
+-   Full Stack Applications
+-   Authentication & Authorization
+
+This application is still in a beta phase, so I apologize for any inconvenience or downtime! At it's current state, there should be no threat between upgrading versions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+### Features
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+List of features available within this CMS, some features may not be present currently, but if listed, are on the planned route of completion before first release:
+
+-   Full SEO Management
+-   Post Editing / Saving / Scheduling / Drafts
+-   Rich Text Editor (based on [Quill](https://quilljs.com/))
+-   Dashboard / Reports / Analytics
+-   Login Rate Limiting / IP Banning
+-   Single Author Account / Encrypted JWTs
+-   SSG & SSR (For maximum SEO optimization mixed with performance)
+
+### Built With
 
 [![Next][next.js]][next-url]
 [![React][react.js]][react-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
--   npm
-    ```sh
-    npm install npm@latest -g
-    ```
-
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
     ```sh
-    git clone https://github.com/your_username_/Project-Name.git
+    git clone https://github.com/justin-carver/Nomad.git
     ```
-3. Install NPM packages
+2. Install yarn packages
     ```sh
-    npm install
+    yarn install
     ```
-4. Enter your API in `config.js`
+3. Create and configure your `.env.local` file, which contains many fields for Nomad to function.
     ```js
-    const API_KEY = 'ENTER YOUR API';
+    ADMIN_USERNAME = nomad
+    ADMIN_PASSWORD = N0m4d4Lyfe
+    NEXTAUTH_API = http://localhost:3000/
+    NEXTAUTH_SECRET = noj345hoipdufpio345opi345/i4j5oui345o=
     ```
+4. Create database tables in the `postgreSQL` client and spin up the databases using the correct schema information.
+5. Run `yarn dev` while developing and `yarn build` before pushing to production!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -110,9 +105,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+To create a post, simply start the server, navigate to `localhost:3000/login`, and sign in with the information provided in the `.env.local` file containing your `ADMIN_USERNAME` and `ADMIN_PASSWORD` fields. Once signed in, if not redirected, navigate to `localhost:3000/dashboard` to view your options and either create a new post or edit a draft.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,12 +116,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 -   [x] Add Changelog
 -   [x] Add back to top links
 -   [ ] Add Additional Templates w/ Examples
--   [ ] Add "components" document to easily copy & paste sections of the readme
--   [ ] Multi-language Support
-    -   [ ] Chinese
-    -   [ ] Spanish
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/justin-carver/Nomad/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -136,7 +125,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. PRs will be reviewed when available.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -149,11 +138,37 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- FAQ -->
+
+## FAQ
+
+**1. Why is the credentials provider used instead of something like Github or OAuth?**
+
+Since this project is focused on being lightweight, easy to understand, and only support one author for blogs, the easiest route was to use the credential provider. The local .env file is safely stored on the server and cannot be accessed by any clients, while providing a great way to validate author information without having to host multiple database tables. `Next-Auth` also generates encrypted JWTs along with every session that is used to validate connection attempts.
+
+I would **not** use only a password-based system for any important, scalable authentication methods. Since this blog's needs are simple, this was the easiest way. As well, when using a password, a complex, lengthy password is preferred. You can go as far as encrypting it before transit, but HTTPS **should** be enabled by default on the server.
+
+**2. Can I just use this like it is? Is there a lot of setup?**
+
+There is not a lot of setup to get this going, and you definitely can use this CMS 'out of the box' after cloning/forking the repo. Once downloaded, either start the server using `yarn dev` or `yarn start` after making sure to run `yarn install` to install/upgrade your dependencies, and verifying your local postgreSQL database, and `.env.local` files are created and setup properly. Once configured, follow the steps in the [usage](#usage) category above to begin posting.
+
+<!-- Project Ideas -->
+
+## Project / Fork Ideas
+
+Here are some great ideas that will make this project even more interesting, and may serve as a unique talking point for your resume!
+
+1. Add multi-user authentication to the CMS. (role-based permissions?)
+2. Use webhooks to post somewhere else automatically when you create a blog post!
+3. Implement a comment system. Maybe even throw in an upvote system.
+4. Design and build a component that shows how many viewers are reading the post in real-time.
+5. Create a RESTful API to authenticate and create posts from anywhere.
+
 <!-- LICENSE -->
 
 ## License
 
-Distributed under the GPLv3 License. See `LICENSE.txt` for more information.
+Distributed under the GPLv3 License. See `LICENSE.txt` for more information. Please refer to the license for redistribution or any other promotional aspects.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,21 +176,15 @@ Distributed under the GPLv3 License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Justin Carver - justincarver.work! [(Check out this exact blog in action!)](https://blog.justincarver.work)
+**Justin Carver** - *https://justincarver.work!*
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[( 💻 Check out Nomad in action on my own blog!)](https://blog.justincarver.work)
 
-<!-- ACKNOWLEDGMENTS -->
+If you are having an issue, please open up a bug report within GitHub so that it can be tracked and worked on in a timely manner.
 
-## Acknowledgments
+---
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
--   [Choose an Open Source License](https://choosealicense.com)
--   [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
--   [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
--   [Malven's Grid Cheatsheet](https://grid.malven.co/)
--   [Img Shields](https://shields.io)
+_If you're looking for a full stack React / Next.js developer, and willing to employ remotely, [**hire me!**](https://justincarver.work) 👋_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

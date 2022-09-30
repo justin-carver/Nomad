@@ -1,0 +1,18 @@
+.Dashboard__drafts {
+	margin-top: 40px;
+	min-width: 80vw;
+}
+.Dashboard__drafts--preview {
+	min-width: 100%;
+}
+.Dashboard__headerWrapper {
+	background-color: var(--mantine-color-dark-6);
+	min-width: 100vw;
+	padding: 5px;
+}
+.Dashboard__navbar {
+	min-width: 80vw;
+}
+.Dashboard__previewPosts {
+	margin-top: 20px;
+}

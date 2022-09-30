@@ -11,7 +11,11 @@ function App({ Component, pageProps }: AppProps) {
 	return (
 		<SessionProvider>
 			<PrivateRoute protectedRoutes={protectedRoutes}>
-				<MantineProvider theme={{ colorScheme: 'dark' }} withCSSVariables withGlobalStyles withNormalizeCSS>
+				<MantineProvider
+					theme={{ colorScheme: 'dark' }}
+					withCSSVariables
+					withGlobalStyles
+					withNormalizeCSS>
 					<Component {...pageProps} />
 				</MantineProvider>
 			</PrivateRoute>

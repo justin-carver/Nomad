@@ -62,7 +62,10 @@ const authOptions: NextAuthOptions = {
 					username: req.body?.username,
 					password: req.body?.password,
 				};
-				if (user.username === process.env.ADMIN_USERNAME && user.password === process.env.ADMIN_PASSWORD) {
+				if (
+					user.username === process.env.ADMIN_USERNAME &&
+					user.password === process.env.ADMIN_PASSWORD
+				) {
 					return user;
 				} else {
 					return null;
@@ -72,7 +75,6 @@ const authOptions: NextAuthOptions = {
 	],
 	callbacks: {
 		jwt: async ({ token, user, account }) => {
-			// Initial sign in
 			if (account && user) {
 				return {
 					accessToken: account.access_token,
@@ -83,7 +85,6 @@ const authOptions: NextAuthOptions = {
 			}
 
 			// ! Important to refresh tokens!
-			// Return previous token if the access token has not expired yet
 			if (Date.now() < (token as any).accessTokenExpires) {
 				return token;
 			}
@@ -97,8 +98,6 @@ const authOptions: NextAuthOptions = {
 			(session as any).user = token.user;
 			session.accessToken = token.accessToken;
 			session.error = token.error;
-			// console.log({ session, token });
-
 			return session;
 		},
 	},

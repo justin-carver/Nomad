@@ -1,5 +1,5 @@
 import { Container, Loader, Center } from '@mantine/core';
-import styles from '../styles/FullPageLoader.module.css';
+import styles from '../styles/components/FullPageLoader.module.css';
 
 export default function FullPageLoader() {
 	return (
