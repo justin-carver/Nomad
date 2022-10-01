@@ -8,11 +8,14 @@
 .Dashboard__headerWrapper {
 	background-color: var(--mantine-color-dark-6);
 	min-width: 100vw;
-	padding: 5px;
+	padding: 15px;
 }
 .Dashboard__navbar {
 	min-width: 80vw;
 }
 .Dashboard__previewPosts {
 	margin-top: 20px;
+}
+.Dashboard__profile--avatar:hover {
+	border: 2px solid var(--mantine-color-dark-3);
 }

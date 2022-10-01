@@ -10,6 +10,7 @@ import {
 	Button,
 	Space,
 	Checkbox,
+	Image,
 } from '@mantine/core';
 import { IconUser, IconKey, IconLogin, IconBrandGithub } from '@tabler/icons';
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -58,6 +59,15 @@ const Login = () => {
 			</Head>
 			<Container className={styles['Login__container']}>
 				<Stack>
+					<Center>
+						<Image
+							width={64}
+							height={64}
+							className={styles['Login__logo']}
+							src={'https://i.imgur.com/gE8itPl.png'}
+							alt={'logo'}
+						/>
+					</Center>
 					<Text size={'xl'} align={'center'}>
 						Welcome Back! 👋
 					</Text>
@@ -127,10 +137,12 @@ const Login = () => {
 						<Divider />
 						<Stack spacing={5}>
 							<Button variant="subtle" fullWidth onClick={() => signOut()}>
-								Sign out
+								Logout
 							</Button>
 							<Text size={'xs'} color={'dark.3'} align={'center'}>
-								{`currently signed in as: ${session?.user?.name}`}
+								{`currently logged in as: ${
+									session?.user?.name ? session?.user?.name : 'nobody'
+								}`}
 							</Text>
 							<Container>
 								<a href="https://github.com/justin-carver/Nomad">

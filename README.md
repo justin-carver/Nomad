@@ -25,17 +25,17 @@
   </p>
 </div>
 
-- [About The Project](#about-the-project)
-  - [Features](#features)
-  - [Built With](#built-with)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [FAQ](#faq)
-- [Project / Fork Ideas](#project--fork-ideas)
-- [License](#license)
-- [Contact](#contact)
+-   [About The Project](#about-the-project)
+    -   [Features](#features)
+    -   [Built With](#built-with)
+    -   [Installation](#installation)
+-   [Usage](#usage)
+-   [Roadmap](#roadmap)
+-   [Contributing](#contributing)
+-   [FAQ](#faq)
+-   [Project / Fork Ideas](#project--fork-ideas)
+-   [License](#license)
+-   [Contact](#contact)
 
 <!-- ABOUT THE PROJECT -->
 
@@ -60,12 +60,13 @@ This application is still in a beta phase, so I apologize for any inconvenience 
 
 ### Features
 
-List of features available within this CMS, some features may not be present currently, but if listed, are on the planned route of completion before first release:
+List of features available within this CMS. Some features may not be present currently, but if listed, are on the planned route of completion before first release:
 
 -   Full SEO Management
 -   Post Editing / Saving / Scheduling / Drafts
 -   Rich Text Editor (based on [Quill](https://quilljs.com/))
 -   Dashboard / Reports / Analytics
+-   Responsive Design / Mobile Friendly
 -   Login Rate Limiting / IP Banning
 -   Single Author Account / Encrypted JWTs
 -   SSG & SSR (For maximum SEO optimization mixed with performance)
@@ -105,7 +106,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Usage
 
-To create a post, simply start the server, navigate to `localhost:3000/login`, and sign in with the information provided in the `.env.local` file containing your `ADMIN_USERNAME` and `ADMIN_PASSWORD` fields. Once signed in, if not redirected, navigate to `localhost:3000/dashboard` to view your options and either create a new post or edit a draft.
+To create a post, simply start the server, navigate to `/login`, and sign in with the information provided in the `.env.local` file containing your `ADMIN_USERNAME` and `ADMIN_PASSWORD` fields. Once signed in, if not redirected, navigate to `/dashboard` to view your options and either create a new post or edit a draft.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -159,10 +160,12 @@ There is not a lot of setup to get this going, and you definitely can use this C
 Here are some great ideas that will make this project even more interesting, and may serve as a unique talking point for your resume!
 
 1. Add multi-user authentication to the CMS. (role-based permissions?)
-2. Use webhooks to post somewhere else automatically when you create a blog post!
+2. Use webhooks to post somewhere else automatically when you create a blog post.
 3. Implement a comment system. Maybe even throw in an upvote system.
 4. Design and build a component that shows how many viewers are reading the post in real-time.
-5. Create a RESTful API to authenticate and create posts from anywhere.
+5. Extend the REST API to authenticate and create posts from anywhere.
+6. Convert the relational database into a NoSQL solution like MongoDB or Cassandra.
+7. Create and import custom components into the Quill editor and toolbar.
 
 <!-- LICENSE -->
 

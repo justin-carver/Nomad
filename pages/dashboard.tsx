@@ -1,29 +1,11 @@
 import { NextPage } from 'next';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import { Group, Text, Avatar, Container, Stack, Box, Title, Divider } from '@mantine/core';
+import { Group, Text, Container, Stack, Box, Title, Divider } from '@mantine/core';
 import styles from '../styles/Dashboard.module.css';
 import PostPreview from '../components/PostPreview';
 import Head from 'next/head';
+import DashboardProfile from '../components/dashboard/DashboardProfile';
 
-// This gets called on every request
-export async function getServerSideProps() {
-	// // Fetch data from external API
-	// const res = await fetch(`https://.../data`);
-	// const data = await res.json();
-
-	// Pass data to the page via props
-	return { props: {} };
-}
-
-const Dashboard: NextPage = () => {
-	const { status } = useSession();
-	const Router = useRouter();
-
-	if (status === 'unauthenticated') {
-		Router.push('/');
-	}
-
+const Dashboard: NextPage = (props: any) => {
 	return (
 		<Box>
 			<Head>
@@ -37,9 +19,7 @@ const Dashboard: NextPage = () => {
 							<Text size={'md'}>Drafts</Text>
 							<Text size={'md'}>Reports</Text>
 						</Group>
-						<Avatar color="cyan" radius="xl">
-							JC
-						</Avatar>
+						<DashboardProfile />
 					</Group>
 				</Container>
 			</Stack>
