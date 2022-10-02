@@ -12,6 +12,10 @@
 }
 .PostPreview__title {
 	display: block;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	margin-bottom: 5px;
 	margin-top: 20px;
 }

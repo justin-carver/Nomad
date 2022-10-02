@@ -72,7 +72,7 @@ const Login = () => {
 						Welcome Back! 👋
 					</Text>
 					<Text size={'sm'} align={'center'}>
-						Please sign in with your account information below.
+						Please login with your account information below.
 					</Text>
 					<Text
 						size={'xs'}

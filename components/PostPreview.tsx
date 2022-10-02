@@ -11,9 +11,11 @@ import {
 	useMantineTheme,
 	Divider,
 } from '@mantine/core';
+import { IconWriting } from '@tabler/icons';
 import styles from '../styles/components/PostPreview.module.css';
 
 interface ArticleCardProps {
+	draft: boolean;
 	image: string;
 	link: string;
 	title: string;
@@ -22,22 +24,25 @@ interface ArticleCardProps {
 		name: string;
 		image: string;
 	};
+	lastEdited: string;
 }
 
 const PostPreview = ({
+	draft,
 	className,
 	image,
 	link,
 	title,
 	description,
 	author,
-	...others
+	lastEdited,
+	...props
 }: ArticleCardProps & Omit<React.ComponentPropsWithoutRef<'div'>, keyof ArticleCardProps>) => {
 	const linkProps = { href: link, target: '_blank', rel: 'noopener noreferrer' };
 	const theme = useMantineTheme();
 
 	return (
-		<Card withBorder radius="md" shadow={'lg'} className={styles['PostPreview']} {...others}>
+		<Card withBorder radius="md" shadow={'lg'} className={styles['PostPreview']} {...props}>
 			<Card.Section>
 				<a {...linkProps}>
 					<Image src={image} height={180} alt={'Blog Post Image Alt'} />
@@ -74,6 +79,19 @@ const PostPreview = ({
 						<IconShare size={16} />
 					</ActionIcon>
 				</Group>
+				{draft && (
+					<Group spacing={4}>
+						<IconWriting size={18} color={'gray'} />
+						<Text size={'xs'} color={'dimmed'}>{`Draft lasted edited: ${new Date(
+							lastEdited
+						).toLocaleDateString('en-us', {
+							weekday: 'long',
+							year: 'numeric',
+							month: 'short',
+							day: 'numeric',
+						})}`}</Text>
+					</Group>
+				)}
 			</Group>
 		</Card>
 	);

@@ -12,7 +12,7 @@
   <h3 align="center">Nomad</h3>
 
   <p align="center">
-    A simple, lightweight, customizable blogging CMS<br />built on Next.js, postgreSQL, and the Mantine component library.
+    A lightweight, customizable, single-author blogging CMS<br />built on Next.js, postgreSQL, and the Mantine component library.
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -43,18 +43,31 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Nomad is a simple, lightweight, customizable, blogging system built on `Next.js` and the `Mantine` component library. The core post database systems is built off of `postgreSQL` with a `prisma` adapter, while using `next-auth` credentials alongside `encrypted JWTs` to handle administrative operations within the CMS.
+Nomad is a lightweight, customizable, single-author blogging system built on `Next.js` and the `Mantine` component library. The core post database systems is built off `postgreSQL` with a `prisma` adapter, while using `next-auth` credentials alongside `encrypted JWTs` to handle administrative operations within the CMS.
 
-The purpose of this project is to help beginners understand systems design within full stack applications, namely this Content Management System (CMS). The CMS Nomad is utilizing is simple and intuitive, yet teaches basic DevOps and security fundamentals. As well, this repo will serve as a teaching point to those looking to learn:
+**What does single-author mean?** Nowadays, most CMS are designed with the complexity of introducing collaborators or enterprise level components and ideas; with in some cases, multiple authors attached to multiple newsletters. While this is great for small to large teams, there is a barrier of unnecessary configuration if you are a solo developer or a community leader. This project is for someone who is learning React or Next.js, or maybe someone who just wants a quick blog set up in a few clicks.
+
+The purpose of this project is to help beginners understand systems design within full stack application for a blog that supports one author. Nomad is simple and intuitive, yet teaches basic DevOps concepts and full stack fundamentals. This repo will serve as a teaching point to those looking to learn:
 
 -   SEO / Marketing
 -   Database Management
     -   PostgreSQL
     -   Prisma
--   Full Stack Applications
+-   Full Stack Development
+    -   API Management
+    -   React Component Design
+    -   Next.js / Mantine
 -   Authentication & Authorization
 
 This application is still in a beta phase, so I apologize for any inconvenience or downtime! At it's current state, there should be no threat between upgrading versions.
+
+### Core Stack
+
+[![Next][next.js]][next-url]
+[![React][react.js]][react-url]
+
+<!-- postgreSQL -->
+<!-- mantine -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -62,7 +75,7 @@ This application is still in a beta phase, so I apologize for any inconvenience 
 
 List of features available within this CMS. Some features may not be present currently, but if listed, are on the planned route of completion before first release:
 
--   Full SEO Management
+-   Full In-tool SEO Management
 -   Post Editing / Saving / Scheduling / Drafts
 -   Rich Text Editor (based on [Quill](https://quilljs.com/))
 -   Dashboard / Reports / Analytics
@@ -70,11 +83,6 @@ List of features available within this CMS. Some features may not be present cur
 -   Login Rate Limiting / IP Banning
 -   Single Author Account / Encrypted JWTs
 -   SSG & SSR (For maximum SEO optimization mixed with performance)
-
-### Built With
-
-[![Next][next.js]][next-url]
-[![React][react.js]][react-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -166,6 +174,17 @@ Here are some great ideas that will make this project even more interesting, and
 5. Extend the REST API to authenticate and create posts from anywhere.
 6. Convert the relational database into a NoSQL solution like MongoDB or Cassandra.
 7. Create and import custom components into the Quill editor and toolbar.
+
+<!-- SPECIAL THANKS -->
+
+## Special Thanks
+
+Big thanks to the libraries/frameworks below for helping make this little project of mine a reality:
+
+-   [Mantine Component Library](https://mantine.dev/)
+-   [DataTable Component (icflorescu)](https://github.com/icflorescu/mantine-datatable)
+-   [PostgreSQL](https://www.postgresql.org/)
+-   [Next.js](https://nextjs.org/)
 
 <!-- LICENSE -->
 
