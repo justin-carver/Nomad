@@ -1,21 +1,25 @@
-.Dashboard__drafts {
-	margin-top: 40px;
-	min-width: 80vw;
+.Dashboard__mainArea {
+	padding: 35px;
 }
-.Dashboard__drafts--preview {
-	min-width: 100%;
+.Dashboard__hero {
+	padding: 20px;
+	border-radius: 10px;
+	background-color: var(--mantine-color-dark-8);
 }
-.Dashboard__headerWrapper {
-	background-color: var(--mantine-color-dark-6);
-	min-width: 100vw;
-	padding: 15px;
+.Dashboard__hero--button {
+	padding: 50px;
 }
-.Dashboard__navbar {
-	min-width: 80vw;
+.Dashboard__profile--avatar {
+	width: fit-content;
+	height: fit-content;
+	align-items: center;
+	margin-bottom: 40px;
+	margin-top: 15px;
 }
-.Dashboard__previewPosts {
-	margin-top: 20px;
+.Dashboard__profile--avatar > * {
+	width: fit-content;
+	height: fit-content;
 }
-.Dashboard__profile--avatar:hover {
-	border: 2px solid var(--mantine-color-dark-3);
+.Dashboard__wrapper {
+	align-items: flex-start;
 }

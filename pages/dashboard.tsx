@@ -1,12 +1,17 @@
-import { NextPage } from 'next';
-import { useEffect, useState } from 'react';
-import { Group, Text, Container, Stack, Box, Title, Divider } from '@mantine/core';
-import styles from '../styles/Dashboard.module.css';
-import PostPreview from '../components/PostPreview';
-import Head from 'next/head';
 import { AnimatePresence, motion } from 'framer-motion';
-import DashboardProfile from '../components/dashboard/DashboardProfile';
+import { NextPage } from 'next';
+import { useSession } from 'next-auth/react';
+import Head from 'next/head';
+
+import { ScrollArea, Box, Button, Divider, Group, Space, Stack, Text, Title } from '@mantine/core';
 import { randomId } from '@mantine/hooks';
+import { IconWriting } from '@tabler/icons';
+
+import HeroButton from '../components/dashboard/HeroButton';
+import DataTableComponent from '../components/dashboard/DataTableComponent';
+import NavigationBar from '../components/dashboard/NavigationBar';
+import PostPreview from '../components/PostPreview';
+import styles from '../styles/Dashboard.module.css';
 import placeholderPosts from './api/placeholder';
 
 // framer-motion prarameters
@@ -45,62 +50,72 @@ export const getServerSideProps = async () => {
 };
 
 const Dashboard: NextPage = (props: any) => {
-	// useEffect(() => {
-	// 	props.posts.map((post: any) => {
-	// 		console.log(post);
-	// 	});
-	// }, []);
+	const session = useSession();
 	return (
 		<Box>
 			<Head>
-				<title>Dashboard</title>
+				<title>{`Dashboard | ${session.data?.user?.name}`}</title>
 			</Head>
-			<Stack className={styles['Dashboard__headerWrapper']}>
-				<Container className={styles['Dashboard__navbar']}>
-					<Group position="apart">
-						<Group spacing={'xl'}>
-							<Text size={'md'}>Posts</Text>
-							<Text size={'md'}>Drafts</Text>
-							<Text size={'md'}>Reports</Text>
-						</Group>
-						<DashboardProfile />
-					</Group>
-				</Container>
-			</Stack>
-			<Container className={styles['Dashboard__drafts']}>
-				<Stack className={styles['Dashboard__drafts--header']}>
-					<Title order={2}>Recent Drafts 📝</Title>
-					<Divider />
-				</Stack>
-				<AnimatePresence>
-					<motion.div variants={container} animate={'visible'}>
-						<Group className={styles['Dashboard__previewPosts']} spacing={20}>
-							{props.posts.map((post: any) => {
-								return (
-									<motion.div
-										key={randomId()}
-										variants={item}
-										initial={'hidden'}
-										animate={'visible'}>
-										<PostPreview
-											draft // details whether the 'draft last edited' section appears.
-											title={post.title}
-											author={{
-												name: props.authorInfo.name,
-												image: props.authorInfo.image,
-											}}
-											description={post.description}
-											image={post.imageUrl}
-											lastEdited={post.lastEdited}
-											link={'/'}
-										/>
-									</motion.div>
-								);
-							})}
-						</Group>
-					</motion.div>
-				</AnimatePresence>
-			</Container>
+			<Group className={styles['Dashboard__wrapper']} noWrap>
+				<NavigationBar />
+				<ScrollArea>
+					<Stack className={styles['Dashboard__mainArea']}>
+						<Stack className={styles['Dashboard__drafts']}>
+							<Title order={1}>{`Welcome, ${session.data?.user?.name}`}!</Title>
+							<Group className={styles['Dashboard__hero']}>
+								<HeroButton />
+							</Group>
+							<Stack className={styles['Dashboard__drafts--header']}>
+								<Title order={2}>Recent Drafts 📝</Title>
+							</Stack>
+							<AnimatePresence>
+								<motion.div variants={container} animate={'visible'}>
+									<Group
+										className={styles['Dashboard__previewPosts']}
+										spacing={20}>
+										{props.posts.map((post: any) => {
+											return (
+												<motion.div
+													whileHover={{
+														scale: 1.03,
+														transition: { duration: 0.2 },
+													}}
+													whileTap={{ scale: 1.02 }}
+													key={randomId()}
+													variants={item}
+													initial={'hidden'}
+													animate={'visible'}>
+													<PostPreview
+														draft // enables the 'draft last edited' section.
+														title={post.title}
+														author={{
+															name: props.authorInfo.name,
+															image: props.authorInfo.image,
+														}}
+														description={post.description}
+														image={post.imageUrl}
+														lastEdited={post.lastEdited}
+														link={'/'}
+													/>
+												</motion.div>
+											);
+										})}
+									</Group>
+								</motion.div>
+								<Space />
+								<Divider
+									label={'Post Management'}
+									labelProps={{ color: 'dimmed' }}
+								/>
+								<Stack>
+									<Title order={2}>Published Posts</Title>
+									<DataTableComponent />
+								</Stack>
+							</AnimatePresence>
+						</Stack>
+					</Stack>
+				</ScrollArea>
+			</Group>
 		</Box>
 	);
 };

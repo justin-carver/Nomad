@@ -1,17 +1,17 @@
-import { IconBookmark, IconHeart, IconShare } from '@tabler/icons';
 import {
+	ActionIcon,
+	Avatar,
+	Badge,
 	Card,
+	Center,
+	Divider,
+	Group,
 	Image,
 	Text,
-	ActionIcon,
-	Badge,
-	Group,
-	Center,
-	Avatar,
 	useMantineTheme,
-	Divider,
 } from '@mantine/core';
-import { IconWriting } from '@tabler/icons';
+import { IconBookmark, IconHeart, IconShare, IconWriting } from '@tabler/icons';
+
 import styles from '../styles/components/PostPreview.module.css';
 
 interface ArticleCardProps {
@@ -48,6 +48,18 @@ const PostPreview = ({
 					<Image src={image} height={180} alt={'Blog Post Image Alt'} />
 				</a>
 			</Card.Section>
+
+			<Group className={styles['PostPreview__tagGroup']} spacing={'xs'}>
+				<Badge className={styles['PostPreview__tag']} color={'red'} radius="sm" size="sm">
+					DevOps
+				</Badge>
+				<Badge className={styles['PostPreview__tag']} color={'green'} radius="sm" size="sm">
+					Back End
+				</Badge>
+				<Badge className={styles['PostPreview__tag']} radius="sm" size="sm">
+					Databases
+				</Badge>
+			</Group>
 
 			<Text
 				className={styles['PostPreview__title']}

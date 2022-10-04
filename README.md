@@ -43,7 +43,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Nomad is a lightweight, customizable, single-author blogging system built on `Next.js` and the `Mantine` component library. The core post database systems is built off `postgreSQL` with a `prisma` adapter, while using `next-auth` credentials alongside `encrypted JWTs` to handle administrative operations within the CMS.
+Nomad is a lightweight, customizable, single-author blogging system built on `Next.js`, the `Mantine` component library, and `Framer Motion`. The core post database systems is built off `postgreSQL` with a `prisma` adapter, while using `next-auth` credentials alongside `encrypted JWTs` to handle administrative operations within the CMS.
 
 **What does single-author mean?** Nowadays, most CMS are designed with the complexity of introducing collaborators or enterprise level components and ideas; with in some cases, multiple authors attached to multiple newsletters. While this is great for small to large teams, there is a barrier of unnecessary configuration if you are a solo developer or a community leader. This project is for someone who is learning React or Next.js, or maybe someone who just wants a quick blog set up in a few clicks.
 
@@ -106,7 +106,7 @@ _Below is an example of how you can instruct your audience on installing and set
     NEXTAUTH_SECRET = noj345hoipdufpio345opi345/i4j5oui345o=
     ```
 4. Create database tables in the `postgreSQL` client and spin up the databases using the correct schema information.
-5. Run `yarn dev` while developing and `yarn build` before pushing to production!
+5. Run `yarn dev` while developing or `next build` before pushing to production!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,16 +134,19 @@ See the [open issues](https://github.com/justin-carver/Nomad/issues) for a full 
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. PRs will be reviewed when available.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. PRs will be reviewed when available!
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+All I ask is that the PR be meaningful to the project in some capacity, and simply not renaming/moving files or type additions. PRs that increase the scope or complexity of the final product generally will **not** be accepted, unless discussed prior.
+
+> **Remember:** the goal of this CMS is to be simple and suffice the bare necessities for managing a blog by a single author. Bells and whistles can be forked. :^)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -167,13 +170,14 @@ There is not a lot of setup to get this going, and you definitely can use this C
 
 Here are some great ideas that will make this project even more interesting, and may serve as a unique talking point for your resume!
 
-1. Add multi-user authentication to the CMS. (role-based permissions?)
+1. Add multi-user authentication to the CMS. ([RBAC?](https://en.wikipedia.org/wiki/Role-based_access_control))
 2. Use webhooks to post somewhere else automatically when you create a blog post.
 3. Implement a comment system. Maybe even throw in an upvote system.
-4. Design and build a component that shows how many viewers are reading the post in real-time.
-5. Extend the REST API to authenticate and create posts from anywhere.
+4. Design and build a component that shows how many viewers are reading a post in real-time.
+5. Extend the Next.js REST API to authenticate and create posts from anywhere.
 6. Convert the relational database into a NoSQL solution like MongoDB or Cassandra.
 7. Create and import custom components into the Quill editor and toolbar.
+8. Design a "Featured Story/Post" section on the front page.
 
 <!-- SPECIAL THANKS -->
 
@@ -185,6 +189,7 @@ Big thanks to the libraries/frameworks below for helping make this little projec
 -   [DataTable Component (icflorescu)](https://github.com/icflorescu/mantine-datatable)
 -   [PostgreSQL](https://www.postgresql.org/)
 -   [Next.js](https://nextjs.org/)
+-   [Framer Motion](https://www.framer.com/motion/)
 
 <!-- LICENSE -->
 

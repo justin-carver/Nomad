@@ -10,6 +10,7 @@ const placeholderPosts = () => {
 					'https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80',
 				likes: 300,
 				lastEdited: new Date(),
+				tags: ['Next.js', 'Full Stack', 'Front End'],
 			},
 			{
 				title: 'Relational PostgreSQL vs. NoSQL Databases',
@@ -19,6 +20,7 @@ const placeholderPosts = () => {
 				imageUrl:
 					'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2068&q=80',
 				likes: 300,
+				tags: ['Back End', 'PostgreSQL', 'Databases'],
 			},
 		],
 	};

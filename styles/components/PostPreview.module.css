@@ -1,11 +1,16 @@
 .PostPreview {
 	background: var(--mantine-color-dark-6);
 	max-height: fit-content;
-	max-width: 320px;
+	max-width: 400px;
 	position: relative;
+	user-select: none;
+	cursor: default;
 }
 .PostPreview__action {
 	background: var(--mantine-color-dark-4);
+}
+.PostPreview__tagGroup {
+	margin: 10px 0 10px 0;
 }
 .PostPreview__description {
 	text-overflow: ellipsis;
@@ -17,7 +22,6 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	margin-bottom: 5px;
-	margin-top: 20px;
 }
 .PostPreview__footer {
 	margin-top: 20px;

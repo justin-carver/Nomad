@@ -1,23 +1,25 @@
-import { FormEvent, FormEventHandler, useState, useRef } from 'react';
-import {
-	Text,
-	Center,
-	Container,
-	Stack,
-	Input,
-	Group,
-	Divider,
-	Button,
-	Space,
-	Checkbox,
-	Image,
-} from '@mantine/core';
-import { IconUser, IconKey, IconLogin, IconBrandGithub } from '@tabler/icons';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import Head from 'next/head';
 import Router from 'next/router';
+import { FormEvent, FormEventHandler, useRef, useState } from 'react';
+
+import {
+	Button,
+	Center,
+	Checkbox,
+	Container,
+	Divider,
+	Group,
+	Image,
+	Input,
+	Space,
+	Stack,
+	Text,
+} from '@mantine/core';
+import { IconBrandGithub, IconKey, IconLogin, IconUser } from '@tabler/icons';
+
 import FullPageLoader from '../components/FullPageLoader';
 import styles from '../styles/Login.module.css';
-import Head from 'next/head';
 
 export const getServerSideProps = () => {
 	return { props: {} };

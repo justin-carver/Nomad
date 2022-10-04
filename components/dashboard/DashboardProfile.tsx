@@ -1,15 +1,17 @@
-import {
-	IconChevronDown,
-	IconSettings,
-	IconPhoto,
-	IconMessageCircle,
-	IconArrowsLeftRight,
-	IconSearch,
-	IconLogout,
-} from '@tabler/icons';
 import { signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { Group, Avatar, ActionIcon, Menu, Text } from '@mantine/core';
+
+import { ActionIcon, Avatar, Group, Menu, Text } from '@mantine/core';
+import {
+	IconArrowsLeftRight,
+	IconChevronDown,
+	IconLogout,
+	IconMessageCircle,
+	IconPhoto,
+	IconSearch,
+	IconSettings,
+} from '@tabler/icons';
+
 import styles from '../../styles/Dashboard.module.css';
 
 const DashboardProfile = () => {
@@ -19,15 +21,17 @@ const DashboardProfile = () => {
 	useEffect(() => setUsername(session?.user?.name!), [session?.user]);
 
 	return (
-		<Menu shadow="md" width={200} offset={20} position={'bottom-end'} withArrow>
+		<Menu shadow="md" width={300} offset={20} position={'left-start'} withArrow>
 			<Menu.Target>
-				<ActionIcon size={'sm'} variant={'transparent'}>
+				<ActionIcon
+					size={'sm'}
+					variant={'transparent'}
+					className={styles['Dashboard__profile--avatar']}>
 					<Avatar
-						className={styles['Dashboard__profile--avatar']}
+						size={42}
 						color={'cyan'}
-						radius={'xl'}>
-						NM
-					</Avatar>
+						radius={'xl'}
+						src={'https://github.com/justin-carver.png'}></Avatar>
 				</ActionIcon>
 			</Menu.Target>
 			<Menu.Dropdown>
