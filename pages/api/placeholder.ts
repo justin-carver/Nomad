@@ -4,7 +4,7 @@ const placeholderPosts = () => {
 			{
 				title: 'Understanding Next.js Dynamic Routes',
 				description:
-					'Next.js dynamic routes are some of the best things about the framework. It enables instant creation of new pages automatically, with little to no user input on manually creating pages.',
+					'Next.js dynamic routes is one of the best things about the framework. It enables instant creation of new pages automatically, with little to no manual labor on part of the developer to update new routes.',
 				postDate: new Date(),
 				imageUrl:
 					'https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80',

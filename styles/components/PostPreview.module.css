@@ -1,10 +1,10 @@
 .PostPreview {
 	background: var(--mantine-color-dark-6);
+	cursor: default;
 	max-height: fit-content;
 	max-width: 400px;
 	position: relative;
 	user-select: none;
-	cursor: default;
 }
 .PostPreview__action {
 	background: var(--mantine-color-dark-4);
@@ -17,11 +17,14 @@
 }
 .PostPreview__title {
 	display: block;
-	width: 100%;
-	white-space: nowrap;
+	font-family: 'Varela Round', sans-serif;
+	letter-spacing: 0.04rem;
+	font-weight: bold;
+	margin-bottom: 5px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	margin-bottom: 5px;
+	white-space: nowrap;
+	width: 100%;
 }
 .PostPreview__footer {
 	margin-top: 20px;

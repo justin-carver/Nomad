@@ -1,5 +1,10 @@
 .Dashboard__mainArea {
-	padding: 35px;
+	width: 90vw;
+	padding-left: 50px;
+}
+.Dashboard__center {
+	height: 100vh;
+	width: 80vw;
 }
 .Dashboard__hero {
 	padding: 20px;
@@ -20,6 +25,9 @@
 	width: fit-content;
 	height: fit-content;
 }
-.Dashboard__wrapper {
-	align-items: flex-start;
+.Dashboard__title--1,
+.Dashboard__title--2 {
+	font-family: 'Varela Round', sans-serif;
+	font-weight: 400;
+	letter-spacing: 2px;
 }

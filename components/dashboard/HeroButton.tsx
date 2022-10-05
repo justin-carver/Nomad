@@ -1,46 +1,51 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
-import { Button, Group, Stack, Text } from '@mantine/core';
+import { UnstyledButton, Box, Group, Stack, Text } from '@mantine/core';
 import { IconWriting, TablerIcon } from '@tabler/icons';
 
 import styles from '../../styles/components/HeroButton.module.css';
 
 interface HeroButtonProps {
 	icon?: TablerIcon;
-	title?: string;
+	reducedMotion?: boolean;
 	subtitle?: string;
+	title?: string;
 }
 
 const HeroButton: React.FC<HeroButtonProps> = (props: any) => {
+	const reducedMotion = useReducedMotion();
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 1.1 }}
+			initial={{ opacity: reducedMotion ? 1 : 0, scale: reducedMotion ? 1 : 1.05 }}
 			animate={{ opacity: 1, scale: 1.0 }}
 			whileHover={{
-				scale: 1.05,
-				transition: { duration: 0.2 },
+				scale: reducedMotion ? 1 : 1.03,
+				transition: { duration: 0.15 },
+				boxShadow: `-1px 6px 23px 0px rgba(var(--mantine-color-violet-5), 0.7))`,
 			}}
-			whileTap={{ scale: 1.01 }}>
-			<Stack>
-				<Button className={styles['HeroButton']} unstyled>
-					<Group align={'center'}>
-						{props.icon ? props.icon : <IconWriting size={48} />}
-						<Stack spacing={5}>
-							<Text size={'xl'} align={'left'}>
-								{props.title ? props.title : 'Create New Post'}
-							</Text>
-							<Text
-								className={styles['HeroButton__subtitle']}
-								size={'sm'}
-								align={'left'}>
-								{props.subtitle
-									? props.subtitle
-									: 'Inspire others! Create a new post to start your journey!'}
-							</Text>
-						</Stack>
-					</Group>
-				</Button>
-			</Stack>
+			whileTap={{ scale: reducedMotion ? 1 : 1.01 }}>
+			<Box className={styles['HeroButton__wrapper']}>
+				<Stack>
+					<UnstyledButton className={styles['HeroButton']}>
+						<Group align={'center'}>
+							{props.icon ? props.icon : <IconWriting size={48} />}
+							<Stack spacing={5}>
+								<Text size={'xl'} align={'left'}>
+									{props.title ? props.title : 'Create New Post'}
+								</Text>
+								<Text
+									className={styles['HeroButton__subtitle']}
+									size={'sm'}
+									align={'left'}>
+									{props.subtitle
+										? props.subtitle
+										: 'Inspire others! Create a new post to start your journey!'}
+								</Text>
+							</Stack>
+						</Group>
+					</UnstyledButton>
+				</Stack>
+			</Box>
 		</motion.div>
 	);
 };

@@ -15,7 +15,6 @@ import { IconBookmark, IconHeart, IconShare, IconWriting } from '@tabler/icons';
 import styles from '../styles/components/PostPreview.module.css';
 
 interface ArticleCardProps {
-	draft: boolean;
 	image: string;
 	link: string;
 	title: string;
@@ -25,6 +24,8 @@ interface ArticleCardProps {
 		image: string;
 	};
 	lastEdited: string;
+	tags?: string[];
+	draft?: boolean;
 }
 
 const PostPreview = ({
@@ -50,15 +51,18 @@ const PostPreview = ({
 			</Card.Section>
 
 			<Group className={styles['PostPreview__tagGroup']} spacing={'xs'}>
-				<Badge className={styles['PostPreview__tag']} color={'red'} radius="sm" size="sm">
-					DevOps
-				</Badge>
-				<Badge className={styles['PostPreview__tag']} color={'green'} radius="sm" size="sm">
-					Back End
-				</Badge>
-				<Badge className={styles['PostPreview__tag']} radius="sm" size="sm">
-					Databases
-				</Badge>
+				{props.tags?.map((tag, index) => {
+					return (
+						<Badge
+							key={index}
+							variant={'outline'}
+							className={styles['PostPreview__tag']}
+							color={'violet.4'}
+							size="md">
+							{tag}
+						</Badge>
+					);
+				})}
 			</Group>
 
 			<Text

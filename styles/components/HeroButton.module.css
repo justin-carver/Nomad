@@ -4,16 +4,18 @@
 	border-radius: 10px;
 	border: none;
 	text-rendering: optimizeLegibility;
-	background-image: linear-gradient(
-		130deg,
-		var(--mantine-color-blue-6),
-		var(--mantine-color-violet-6) 50%
-	);
+	background-color: var(--mantine-color-dark-5);
 }
 .HeroButton__subtitle {
 	max-width: 250px;
 	overflow-wrap: break-word;
 }
-.HeroButton .mantine-UnstyledButton-root {
-	background-color: pink;
+.HeroButton__wrapper {
+	border-radius: 10px;
+	padding: 2px;
+	background-image: linear-gradient(
+		130deg,
+		var(--mantine-color-grape-4),
+		var(--mantine-color-violet-6) 90%
+	);
 }

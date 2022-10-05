@@ -3,7 +3,18 @@ import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 
-import { ScrollArea, Box, Button, Divider, Group, Space, Stack, Text, Title } from '@mantine/core';
+import {
+	ScrollArea,
+	Box,
+	Button,
+	Divider,
+	Group,
+	Space,
+	Stack,
+	Text,
+	Title,
+	Center,
+} from '@mantine/core';
 import { randomId } from '@mantine/hooks';
 import { IconWriting } from '@tabler/icons';
 
@@ -52,35 +63,43 @@ export const getServerSideProps = async () => {
 const Dashboard: NextPage = (props: any) => {
 	const session = useSession();
 	return (
-		<Box>
+		<Box className={styles['Dashboard']}>
 			<Head>
 				<title>{`Dashboard | ${session.data?.user?.name}`}</title>
 			</Head>
-			<Group className={styles['Dashboard__wrapper']} noWrap>
+			<Group className={styles['Dashboard__wrapper']} align={'center'} noWrap>
 				<NavigationBar />
-				<ScrollArea>
+				<Group
+					className={styles['Dashboard__center']}
+					align={'center'}
+					position={'center'}
+					grow>
 					<Stack className={styles['Dashboard__mainArea']}>
 						<Stack className={styles['Dashboard__drafts']}>
-							<Title order={1}>{`Welcome, ${session.data?.user?.name}`}!</Title>
+							<Title className={styles['Dashboard__title--1']} order={1}>
+								{`Welcome, ${session.data?.user?.name}`}!
+							</Title>
 							<Group className={styles['Dashboard__hero']}>
 								<HeroButton />
 							</Group>
 							<Stack className={styles['Dashboard__drafts--header']}>
-								<Title order={2}>Recent Drafts 📝</Title>
+								<Title className={styles['Dashboard__title--2']} order={2}>
+									Recent Drafts 📝
+								</Title>
 							</Stack>
 							<AnimatePresence>
 								<motion.div variants={container} animate={'visible'}>
 									<Group
 										className={styles['Dashboard__previewPosts']}
-										spacing={20}>
+										spacing={30}>
 										{props.posts.map((post: any) => {
 											return (
 												<motion.div
 													whileHover={{
-														scale: 1.03,
-														transition: { duration: 0.2 },
+														scale: 1.02,
+														transition: { duration: 0.15 },
 													}}
-													whileTap={{ scale: 1.02 }}
+													whileTap={{ scale: 1.01 }}
 													key={randomId()}
 													variants={item}
 													initial={'hidden'}
@@ -92,6 +111,7 @@ const Dashboard: NextPage = (props: any) => {
 															name: props.authorInfo.name,
 															image: props.authorInfo.image,
 														}}
+														tags={post.tags}
 														description={post.description}
 														image={post.imageUrl}
 														lastEdited={post.lastEdited}
@@ -108,13 +128,15 @@ const Dashboard: NextPage = (props: any) => {
 									labelProps={{ color: 'dimmed' }}
 								/>
 								<Stack>
-									<Title order={2}>Published Posts</Title>
+									<Title className={styles['Dashboard__title--2']} order={2}>
+										Published Posts
+									</Title>
 									<DataTableComponent />
 								</Stack>
 							</AnimatePresence>
 						</Stack>
 					</Stack>
-				</ScrollArea>
+				</Group>
 			</Group>
 		</Box>
 	);

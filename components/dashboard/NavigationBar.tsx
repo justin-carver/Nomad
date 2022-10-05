@@ -2,7 +2,7 @@ import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import { Center, createStyles, Navbar, Stack, Tooltip, UnstyledButton } from '@mantine/core';
+import { Box, createStyles, Navbar, Stack, Tooltip, UnstyledButton } from '@mantine/core';
 import {
 	IconCalendarStats,
 	IconDeviceDesktopAnalytics,
@@ -25,39 +25,7 @@ interface NavbarLinkProps {
 	onClick?(): void;
 }
 
-const useStyles = createStyles((theme) => ({
-	link: {
-		width: 50,
-		height: 50,
-		borderRadius: theme.radius.md,
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		color: theme.white,
-		opacity: 0.85,
-
-		'&:hover': {
-			opacity: 1,
-			backgroundColor: theme.fn.lighten(
-				theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background!,
-				0.1
-			),
-		},
-	},
-
-	active: {
-		opacity: 1,
-		'&, &:hover': {
-			backgroundColor: theme.fn.lighten(
-				theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background!,
-				0.15
-			),
-		},
-	},
-}));
-
-const NavbarLink = ({ icon: Icon, label, active, onClick }: NavbarLinkProps) => {
-	const { classes, cx } = useStyles();
+const NavbarLink = ({ icon: Icon, label, onClick }: NavbarLinkProps) => {
 	return (
 		<Tooltip
 			className={styles['NavigationBar__tooltip']}
@@ -65,9 +33,7 @@ const NavbarLink = ({ icon: Icon, label, active, onClick }: NavbarLinkProps) => 
 			position="right"
 			transitionDuration={0}
 			color={'dark.5'}>
-			<UnstyledButton
-				onClick={onClick}
-				className={cx(classes.link, { [classes.active]: active })}>
+			<UnstyledButton onClick={onClick} className={styles['NavigationBar__button']}>
 				<Icon stroke={1.5} size={28} />
 			</UnstyledButton>
 		</Tooltip>
@@ -77,9 +43,8 @@ const NavbarLink = ({ icon: Icon, label, active, onClick }: NavbarLinkProps) => 
 const mockdata = [
 	{ icon: IconHome2, label: 'Home' },
 	{ icon: IconGauge, label: 'Dashboard' },
-	{ icon: IconDeviceDesktopAnalytics, label: 'Analytics' },
-	{ icon: IconCalendarStats, label: 'Releases' },
-	{ icon: IconUser, label: 'Account' },
+	{ icon: IconDeviceDesktopAnalytics, label: 'Reports' },
+	{ icon: IconCalendarStats, label: 'Tags' },
 	{ icon: IconFingerprint, label: 'Security' },
 	{ icon: IconSettings, label: 'Settings' },
 ];
@@ -98,27 +63,29 @@ const NavigationBar = () => {
 	));
 
 	return (
-		<Navbar
-			className={styles['NavigationBar']}
-			width={{ base: 80 }}
-			p="md"
-			sx={(theme) => ({
-				backgroundColor: theme.fn.variant({ variant: 'filled', color: theme.primaryColor })
-					.background,
-			})}>
-			<Navbar.Section grow>
-				<Stack justify="center" spacing={5}>
-					<DashboardProfile />
-					{links}
-				</Stack>
-			</Navbar.Section>
-			<Navbar.Section>
-				<Stack justify="center" spacing={0}>
-					<NavbarLink icon={IconSettings} label="Settings" onClick={() => {}} />
-					<NavbarLink icon={IconLogout} label="Logout" onClick={() => signOut()} />
-				</Stack>
-			</Navbar.Section>
-		</Navbar>
+		<Box>
+			<Box className={styles['NavigationBar__wrapper']}>
+				<Navbar className={styles['NavigationBar']} width={{ base: 80 }} p="md">
+					<Navbar.Section grow>
+						<Stack spacing={10} align={'center'}>
+							<DashboardProfile />
+							{links}
+						</Stack>
+					</Navbar.Section>
+					<Navbar.Section>
+						<Stack justify={'center'} spacing={10} align={'center'}>
+							<NavbarLink icon={IconSettings} label="Settings" onClick={() => {}} />
+							<NavbarLink
+								icon={IconLogout}
+								label="Logout"
+								onClick={() => signOut()}
+							/>
+						</Stack>
+					</Navbar.Section>
+				</Navbar>
+			</Box>
+			<Box className={styles['NavigationBar__shadowHelper']}></Box>
+		</Box>
 	);
 };
 
