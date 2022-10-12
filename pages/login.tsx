@@ -1,22 +1,25 @@
-import { FormEvent, FormEventHandler, useState, useRef } from 'react';
-import {
-	Text,
-	Center,
-	Container,
-	Stack,
-	Input,
-	Group,
-	Divider,
-	Button,
-	Space,
-	Checkbox,
-} from '@mantine/core';
-import { IconUser, IconKey, IconLogin, IconBrandGithub } from '@tabler/icons';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import Head from 'next/head';
 import Router from 'next/router';
+import { FormEvent, FormEventHandler, useRef, useState } from 'react';
+
+import {
+	Button,
+	Center,
+	Checkbox,
+	Container,
+	Divider,
+	Group,
+	Image,
+	Input,
+	Space,
+	Stack,
+	Text,
+} from '@mantine/core';
+import { IconBrandGithub, IconKey, IconLogin, IconUser } from '@tabler/icons';
+
 import FullPageLoader from '../components/FullPageLoader';
 import styles from '../styles/Login.module.css';
-import Head from 'next/head';
 
 export const getServerSideProps = () => {
 	return { props: {} };
@@ -58,11 +61,20 @@ const Login = () => {
 			</Head>
 			<Container className={styles['Login__container']}>
 				<Stack>
+					<Center>
+						<Image
+							width={64}
+							height={64}
+							className={styles['Login__logo']}
+							src={'https://i.imgur.com/gE8itPl.png'}
+							alt={'logo'}
+						/>
+					</Center>
 					<Text size={'xl'} align={'center'}>
 						Welcome Back! 👋
 					</Text>
 					<Text size={'sm'} align={'center'}>
-						Please sign in with your account information below.
+						Please login with your account information below.
 					</Text>
 					<Text
 						size={'xs'}
@@ -127,10 +139,12 @@ const Login = () => {
 						<Divider />
 						<Stack spacing={5}>
 							<Button variant="subtle" fullWidth onClick={() => signOut()}>
-								Sign out
+								Logout
 							</Button>
 							<Text size={'xs'} color={'dark.3'} align={'center'}>
-								{`currently signed in as: ${session?.user?.name}`}
+								{`currently logged in as: ${
+									session?.user?.name ? session?.user?.name : 'nobody'
+								}`}
 							</Text>
 							<Container>
 								<a href="https://github.com/justin-carver/Nomad">

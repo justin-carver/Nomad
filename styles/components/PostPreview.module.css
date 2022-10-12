@@ -1,19 +1,37 @@
+@media only screen and (max-width: 1060px) and (min-width: 500px) {
+	.PostPreview {
+		max-width: 100% !important;
+	}
+}
 .PostPreview {
 	background: var(--mantine-color-dark-6);
-	max-height: fit-content;
-	max-width: 320px;
+	cursor: default;
+	max-height: 450px;
+	max-width: 350px;
+	min-width: 300px;
 	position: relative;
+	user-select: none;
 }
 .PostPreview__action {
 	background: var(--mantine-color-dark-4);
+}
+.PostPreview__tagGroup {
+	flex-wrap: nowrap;
+	margin: 15px 0 15px 0;
 }
 .PostPreview__description {
 	text-overflow: ellipsis;
 }
 .PostPreview__title {
 	display: block;
+	font-family: 'Varela Round', sans-serif;
+	font-weight: bold;
+	letter-spacing: 0.04rem;
 	margin-bottom: 5px;
-	margin-top: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
 }
 .PostPreview__footer {
 	margin-top: 20px;

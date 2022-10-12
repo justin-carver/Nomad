@@ -1,6 +1,11 @@
 .Login {
 	min-height: 100vh;
 	min-width: 100vw;
+	background-image: radial-gradient(
+		at top left,
+		var(--mantine-color-dark-4) 0%,
+		var(--mantine-color-dark-8) 70%
+	);
 }
 .Login__container {
 	-moz-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.35);

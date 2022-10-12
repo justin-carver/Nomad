@@ -1,0 +1,28 @@
+@media only screen and (max-width: 925px) {
+	.NavigationBar {
+		display: none;
+	}
+}
+.NavigationBar {
+	position: absolute;
+	left: 0;
+	background-color: var(--mantine-color-violet-8);
+	border: none;
+}
+.NavigationBar__button {
+	width: 50px;
+	height: 50px;
+}
+.NavigationBar__button svg {
+	margin: 0;
+	padding: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+	opacity: 0.85;
+}
+.NavigationBar__button :hover {
+	opacity: 1;
+	color: white;
+	background-color: var(--mantine-color-violet-5);
+}

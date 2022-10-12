@@ -1,0 +1,26 @@
+[
+	{
+		"id": "ab1e3aa6-3116-4e0d-a33d-9262aac86747",
+		"postTitle": "Pfeffer and Sons",
+		"streetAddress": "91877 Greenholt Cove",
+		"city": "Tyler",
+		"state": "MA",
+		"missionStatement": "strategize intuitive infrastructures"
+	},
+	{
+		"id": "6c2c52f1-e197-4892-ae8e-5b5e42c226cb",
+		"name": "Hettinger, Willms and Connelly",
+		"streetAddress": "353 Cremin Via",
+		"city": "Deltona",
+		"state": "NJ",
+		"missionStatement": "mesh sexy synergies"
+	},
+	{
+		"id": "9a2e51e0-5bbe-49af-a748-546509792e28",
+		"name": "Champlin - Spencer",
+		"streetAddress": "5587 Jerde Hollow",
+		"city": "Deerfield Beach",
+		"state": "IN",
+		"missionStatement": "incentivize end-to-end e-markets"
+	}
+]

@@ -1,53 +1,5 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
-import { JWT } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import GithubProvider from 'next-auth/providers/github';
-
-/**
- * Takes a token, and returns a new token with updated
- * `accessToken` and `accessTokenExpires`. If an error occurs,
- * returns the old token and an error property
- */
-// TODO: This needs to be setup correctly!
-async function refreshAccessToken(token: JWT) {
-	try {
-		// const url =
-		// 	'https://oauth2.googleapis.com/token?' +
-		// 	new URLSearchParams({
-		// 		client_id: process.env.GOOGLE_CLIENT_ID,
-		// 		client_secret: process.env.GOOGLE_CLIENT_SECRET,
-		// 		grant_type: 'refresh_token',
-		// 		refresh_token: token.refreshToken,
-		// 	});
-
-		const response = await fetch('url', {
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
-			method: 'POST',
-		});
-
-		const refreshedTokens = await response.json();
-
-		if (!response.ok) {
-			throw refreshedTokens;
-		}
-
-		return {
-			...token,
-			accessToken: refreshedTokens.access_token,
-			accessTokenExpires: Date.now() + refreshedTokens.expires_at * 1000,
-			refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // Fall back to old refresh token
-		};
-	} catch (error) {
-		console.log(error);
-
-		return {
-			...token,
-			error: 'RefreshAccessTokenError',
-		};
-	}
-}
 
 const authOptions: NextAuthOptions = {
 	session: {
@@ -58,12 +10,12 @@ const authOptions: NextAuthOptions = {
 			type: 'credentials',
 			credentials: {},
 			authorize: async (credentials, req) => {
-				const user = {
-					username: req.body?.username,
+				const user: any = {
+					name: req.body?.username,
 					password: req.body?.password,
 				};
 				if (
-					user.username === process.env.ADMIN_USERNAME &&
+					user.name === process.env.ADMIN_USERNAME &&
 					user.password === process.env.ADMIN_PASSWORD
 				) {
 					return user;
@@ -90,7 +42,6 @@ const authOptions: NextAuthOptions = {
 			}
 
 			// Access token has expired, try to update it
-			console.log({ token, user, account });
 			// return refreshAccessToken(token);
 			return token;
 		},
@@ -101,6 +52,7 @@ const authOptions: NextAuthOptions = {
 			return session;
 		},
 	},
+	secret: process.env.NEXTAUTH_SECRET,
 	pages: {
 		signIn: '/login',
 	},
