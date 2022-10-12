@@ -1,12 +1,13 @@
+@media only screen and (max-width: 925px) {
+	.NavigationBar {
+		display: none;
+	}
+}
 .NavigationBar {
-	background-image: linear-gradient(
-		130deg,
-		var(--mantine-color-dark-5) 50%,
-		var(--mantine-color-violet-8) 90%
-	);
+	position: absolute;
+	left: 0;
+	background-color: var(--mantine-color-violet-8);
 	border: none;
-	min-height: 100%;
-	max-height: 100%;
 }
 .NavigationBar__button {
 	width: 50px;
@@ -24,30 +25,4 @@
 	opacity: 1;
 	color: white;
 	background-color: var(--mantine-color-violet-5);
-}
-/*  Shadow was cool, but doesn't work right with position: sticky. */
-/* .NavigationBar__shadowHelper {
-	display: block;
-	position: absolute;
-	z-index: -10 !important;
-	top: 0;
-	left: 0;
-	width: 80px;
-	filter: blur(25px);
-	border: none;
-	min-height: 100%;
-	max-height: 100%;
-	background-image: linear-gradient(
-		130deg,
-		var(--mantine-color-dark-4) 50%,
-		var(--mantine-color-violet-5) 100%
-	);
-} */
-.NavigationBar__wrapper {
-	padding-right: 1px;
-	background-image: linear-gradient(
-		130deg,
-		var(--mantine-color-dark-3) 40%,
-		var(--mantine-color-violet-5) 90%
-	);
 }

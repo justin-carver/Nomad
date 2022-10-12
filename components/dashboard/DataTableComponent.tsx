@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion';
 import sortBy from 'lodash/sortBy';
 import { DataTable, DataTableSortStatus } from 'mantine-datatable';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+
 import companies from '../../data/Companies.json';
 
 const DataTableComponent = () => {
@@ -19,6 +20,7 @@ const DataTableComponent = () => {
 	return (
 		<motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
 			<DataTable
+				striped
 				withBorder
 				withColumnBorders
 				highlightOnHover

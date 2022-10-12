@@ -8,9 +8,10 @@ import {
 	Group,
 	Image,
 	Text,
+	Tooltip,
 	useMantineTheme,
 } from '@mantine/core';
-import { IconBookmark, IconHeart, IconShare, IconWriting } from '@tabler/icons';
+import { IconBookmark, IconSettings, IconPencilPlus, IconWriting } from '@tabler/icons';
 
 import styles from '../styles/components/PostPreview.module.css';
 
@@ -85,14 +86,23 @@ const PostPreview = ({
 				</Center>
 
 				<Group spacing={8} mr={0}>
-					<ActionIcon className={styles['PostPreview__action']}>
-						<IconHeart size={16} color={theme.colors.red[6]} />
-					</ActionIcon>
+					<Tooltip
+						label={'Post Settings'}
+						position={'bottom'}
+						color={'violet.7'}
+						offset={5}
+						m={12}
+						arrowSize={6}
+						withArrow>
+						<ActionIcon className={styles['PostPreview__action']}>
+							<IconSettings size={16} color={theme.colors.dark[1]} />
+						</ActionIcon>
+					</Tooltip>
 					<ActionIcon className={styles['PostPreview__action']}>
 						<IconBookmark size={16} color={theme.colors.yellow[4]} />
 					</ActionIcon>
 					<ActionIcon className={styles['PostPreview__action']}>
-						<IconShare size={16} />
+						<IconPencilPlus size={16} />
 					</ActionIcon>
 				</Group>
 				{draft && (

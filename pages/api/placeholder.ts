@@ -15,11 +15,12 @@ const placeholderPosts = () => {
 			{
 				title: 'Relational PostgreSQL vs. NoSQL Databases',
 				description:
-					'Postgres is actually not that bad, and is something that I strive to learn every chance I get. Coming from a history of NoSQL databases, relational comparisons can be confusing, but still the industry standard.',
+					'PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance. It was originally named POSTGRES, referring to its origins as a successor to the Ingres database developed at the University of California, Berkeley.',
 				postDate: new Date(),
 				imageUrl:
 					'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2068&q=80',
 				likes: 300,
+				lastEdited: new Date(),
 				tags: ['Back End', 'PostgreSQL', 'Databases'],
 			},
 		],

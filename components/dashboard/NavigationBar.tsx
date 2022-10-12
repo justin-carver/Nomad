@@ -46,7 +46,6 @@ const mockdata = [
 	{ icon: IconDeviceDesktopAnalytics, label: 'Reports' },
 	{ icon: IconCalendarStats, label: 'Tags' },
 	{ icon: IconFingerprint, label: 'Security' },
-	{ icon: IconSettings, label: 'Settings' },
 ];
 
 const NavigationBar = () => {
@@ -54,12 +53,7 @@ const NavigationBar = () => {
 	// const Router = useRouter();
 
 	const links = mockdata.map((link, index) => (
-		<NavbarLink
-			{...link}
-			key={link.label}
-			active={index === active}
-			onClick={() => setActive(index)}
-		/>
+		<NavbarLink {...link} key={link.label} active={true} onClick={() => setActive(index)} />
 	));
 
 	return (
@@ -67,13 +61,13 @@ const NavigationBar = () => {
 			<Box className={styles['NavigationBar__wrapper']}>
 				<Navbar className={styles['NavigationBar']} width={{ base: 80 }} p="md">
 					<Navbar.Section grow>
-						<Stack spacing={10} align={'center'}>
+						<Stack spacing={15} align={'center'}>
 							<DashboardProfile />
 							{links}
 						</Stack>
 					</Navbar.Section>
 					<Navbar.Section>
-						<Stack justify={'center'} spacing={10} align={'center'}>
+						<Stack justify={'center'} spacing={15} align={'center'}>
 							<NavbarLink icon={IconSettings} label="Settings" onClick={() => {}} />
 							<NavbarLink
 								icon={IconLogout}

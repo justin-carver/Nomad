@@ -1,3 +1,8 @@
+@media only screen and (max-width: 1060px) and (min-width: 500px) {
+	.HeroButton {
+		max-width: 100% !important;
+	}
+}
 .HeroButton {
 	max-width: 400px;
 	padding: 20px;
@@ -14,8 +19,8 @@
 	border-radius: 10px;
 	padding: 2px;
 	background-image: linear-gradient(
-		130deg,
-		var(--mantine-color-grape-4),
-		var(--mantine-color-violet-6) 90%
+		150deg,
+		var(--mantine-color-dark-6),
+		var(--mantine-color-violet-6) 100%
 	);
 }

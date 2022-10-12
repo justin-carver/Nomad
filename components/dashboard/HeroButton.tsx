@@ -10,6 +10,7 @@ interface HeroButtonProps {
 	reducedMotion?: boolean;
 	subtitle?: string;
 	title?: string;
+	onClick?: void;
 }
 
 const HeroButton: React.FC<HeroButtonProps> = (props: any) => {
@@ -23,7 +24,8 @@ const HeroButton: React.FC<HeroButtonProps> = (props: any) => {
 				transition: { duration: 0.15 },
 				boxShadow: `-1px 6px 23px 0px rgba(var(--mantine-color-violet-5), 0.7))`,
 			}}
-			whileTap={{ scale: reducedMotion ? 1 : 1.01 }}>
+			whileTap={{ scale: reducedMotion ? 1 : 1.01 }}
+			onClick={props.onClick}>
 			<Box className={styles['HeroButton__wrapper']}>
 				<Stack>
 					<UnstyledButton className={styles['HeroButton']}>

@@ -6,7 +6,7 @@ import PrivateRoute from '../components/PrivateRoute';
 
 function App({ Component, pageProps }: AppProps) {
 	// Any routes that need to be protected or hidden will go here.
-	const protectedRoutes = ['/dashboard'];
+	const protectedRoutes = ['/dashboard', '/new-post'];
 
 	return (
 		<SessionProvider>

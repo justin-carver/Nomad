@@ -26,9 +26,10 @@ const DashboardProfile = () => {
 				<ActionIcon
 					size={'sm'}
 					variant={'transparent'}
-					className={styles['Dashboard__profile--avatar']}>
+					className={styles['Dashboard__profile--avatarButton']}>
 					<Avatar
-						size={42}
+						className={styles['Dashboard__profile--avatarImg']}
+						size={48}
 						color={'cyan'}
 						radius={'xl'}
 						src={'https://github.com/justin-carver.png'}></Avatar>

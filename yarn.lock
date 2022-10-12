@@ -263,12 +263,12 @@
   dependencies:
     "@mantine/utils" "5.4.1"
 
-"@mantine/dropzone@^5.4.1":
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/@mantine/dropzone/-/dropzone-5.4.1.tgz#ad69aaca1ea9824b904209dd293f7778a990fa26"
-  integrity sha512-LibT4IRtIfqZU/7frteohiIce1Agf46nXxreb/Ve+98GpRw6CC0c2VswKEcfOBu7M3qbtSS8j92xCHx2AzTWXA==
+"@mantine/dropzone@^5.5.5":
+  version "5.5.5"
+  resolved "https://registry.yarnpkg.com/@mantine/dropzone/-/dropzone-5.5.5.tgz#9f21c23a22c4f14c850bfbc4c30475c3771cc436"
+  integrity sha512-YzR8zRATAMvgO7gG9MPtnUsl7/W/ig/8eksoOsiNi3hmU+vL+si3DRYmmvNP2FL25OwJdVPR7VT5bUTgqmFqhQ==
   dependencies:
-    "@mantine/utils" "5.4.1"
+    "@mantine/utils" "5.5.5"
     react-dropzone "14.2.2"
 
 "@mantine/form@^5.4.1":
@@ -314,10 +314,10 @@
     "@mantine/utils" "5.4.1"
     prism-react-renderer "^1.2.1"
 
-"@mantine/rte@^5.4.1":
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/@mantine/rte/-/rte-5.4.1.tgz#0b67606e97c28ef8e23fd9431b0d0eb16663afa5"
-  integrity sha512-3bqIcgVf7Hzj3zRZNILyp94SqRT44c6iUzVjy885rIS95YV1ndaIjGTxG54p5xzL0YcpVSB+ebRSd9AZh8cSEg==
+"@mantine/rte@^5.5.5":
+  version "5.5.5"
+  resolved "https://registry.yarnpkg.com/@mantine/rte/-/rte-5.5.5.tgz#a746de11099fcd50584ffde8ad933fca1b710c30"
+  integrity sha512-NQM19SVP8cniHl5qhAUYTY2rUwvhUdwCgNaI7rbKBtLRqPPWkOFGPIgLULZcT/h0gOsoW2vlXqxDqu73X2LSAQ==
   dependencies:
     "@tabler/icons" "^1.68.0"
     quill-mention "^3.0.8"
@@ -342,6 +342,11 @@
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.4.1.tgz#06242925933faeca619b28e74d58a63ce94567c8"
   integrity sha512-yaZ7gv9dkr98L65EjaAniZmJpVEPzHbe5aDDljIePLgcU5hVCdUls2v31YXslTf1/CJ5yZp/L7LPYLN86EXlEA==
+
+"@mantine/utils@5.5.5":
+  version "5.5.5"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.5.5.tgz#22b412b6e9d78f2515f9f98db3f5ed83deca91ca"
+  integrity sha512-nt8+A0N1cV4cJNqlKuXazShoEwqtLohHNKFuywEdF3B6vHWdbY799PbT2WmqGTwNQ+se8y5/nBMmamBZrUN4fg==
 
 "@motionone/animation@^10.13.1":
   version "10.14.0"

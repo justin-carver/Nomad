@@ -1,33 +1,47 @@
-.Dashboard__mainArea {
-	width: 90vw;
-	padding-left: 50px;
+@media only screen and (max-width: 925px) {
+	.Dashboard__mainArea {
+		width: 100% !important;
+	}
+	.Dashboard__previewPosts {
+		padding: 0;
+	}
 }
-.Dashboard__center {
-	height: 100vh;
-	width: 80vw;
+.Dashboard {
+	min-width: 470px;
 }
-.Dashboard__hero {
-	padding: 20px;
+.Dashboard__hero,
+.Dashboard__previewPosts {
+	background-color: var(--mantine-color-dark-6);
 	border-radius: 10px;
-	background-color: var(--mantine-color-dark-8);
+	padding: 20px;
 }
 .Dashboard__hero--button {
 	padding: 50px;
 }
-.Dashboard__profile--avatar {
-	width: fit-content;
-	height: fit-content;
+.Dashboard__mainArea {
+	padding: 40px;
+	width: 80%;
+}
+.Dashboard__profile--avatarImg {
+	-moz-box-shadow: 0px 2px 20px 0px var(--mantine-color-violet-4);
+	-webkit-box-shadow: 0px 2px 20px 0px var(--mantine-color-violet-4);
+	border: 3px solid #fff;
+	box-shadow: 0px 2px 20px 0px var(--mantine-color-violet-4);
+	box-sizing: border-box;
+}
+.Dashboard__profile--avatarButton {
 	align-items: center;
+	height: fit-content;
 	margin-bottom: 40px;
 	margin-top: 15px;
-}
-.Dashboard__profile--avatar > * {
 	width: fit-content;
-	height: fit-content;
 }
-.Dashboard__title--1,
-.Dashboard__title--2 {
+.Dashboard__profile--avatarButton > * {
+	height: fit-content;
+	width: fit-content;
+}
+.Dashboard__title {
 	font-family: 'Varela Round', sans-serif;
 	font-weight: 400;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 }
