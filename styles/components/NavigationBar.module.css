@@ -5,8 +5,9 @@
 }
 .NavigationBar {
 	position: absolute;
+	top: 0;
 	left: 0;
-	background-color: var(--mantine-color-violet-8);
+	background-color: var(--mantine-color-dark-8);
 	border: none;
 }
 .NavigationBar__button {
@@ -24,5 +25,5 @@
 .NavigationBar__button :hover {
 	opacity: 1;
 	color: white;
-	background-color: var(--mantine-color-violet-5);
+	background-color: var(--mantine-color-dark-5);
 }
