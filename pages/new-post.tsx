@@ -3,41 +3,78 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-import { Button, Box, Divider, Group, Input, Space, Stack, Text } from '@mantine/core';
+import { Box, Button, Divider, Group, Input, Space, Stack, Text } from '@mantine/core';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import { useIdle } from '@mantine/hooks';
-import { IconArrowLeft, IconHash, IconPhoto, IconUpload, IconX, IconSend } from '@tabler/icons';
+import { IconArrowLeft, IconHash, IconPhoto, IconSend, IconUpload, IconX } from '@tabler/icons';
 
 import RichText from '../components/RichText';
+import {
+	getDraftsObject,
+	getFromLocalStorage,
+	saveDraftsObject,
+	saveToLocalStorage,
+} from '../lib/LocalStorage';
 import styles from '../styles/NewPost.module.css';
+
+interface DraftInterface {
+	title: string;
+	author: string;
+	lastEdited: Date;
+	content: string;
+}
 
 const sayings = [
 	'Tell the world about your new project!',
 	'Unleash your creativity upon the world!',
 	'Talk about your beloved hobby!',
 	'Share your memories with your audience!',
+	'Capture the minds of millions!',
 ];
 
 const NewPost = (props: any) => {
 	const [saying, setSaying] = useState('Upload Media');
-	const [documentTitle, setDocumentTitle] = useState('New Post');
-	const [value, onChange] = useState('');
+	const idle = useIdle(3000);
+
+	// Post State
+	const [titleValue, setTitleValue] = useState('');
+	const [altTextValue, setAltTextValue] = useState('');
+	const [image, setImage] = useState(''); // URL for image after upload, base64 encoded
+	const [rteValue, onChange] = useState(getDraftsObject()?.replaceAll('"', ''));
 
 	useEffect(() => {
 		setSaying(sayings[Math.floor(Math.random() * sayings.length)]);
 	}, []);
+
+	// For the moment, drafts are saved to local storage.
+	// This should definitely be stored in an available db table.
+	useEffect(() => {
+		if (idle && (!getDraftsObject() || getDraftsObject() !== '')) {
+			saveDraftsObject(rteValue?.trim());
+		}
+	});
+
+	// * DEBUGGING REMOVE BEFORE PROD :D
+	useEffect(() => {
+		idle ? console.log(getFromLocalStorage('drafts')) : 0;
+	}, [idle]);
+
+	const insertPostIntoDB = async () => {
+		await fetch('/api/blog/createPost');
+	};
+
 	return (
 		<Box>
 			<Head>
 				<title>New Post</title>
 			</Head>
-			<Group className={styles['NewPost']} position={'center'}>
+			<Group className={styles['NewPost']} position={'center'} align={'start'}>
 				<Stack className={styles['NewPost__stack']} spacing={0}>
 					<Link href={'/dashboard'}>
 						<a>
-							<Group className={styles['NewPost__dashboard']}>
+							<Group className={styles['NewPost__dashboard']} spacing={10}>
 								<IconArrowLeft size={20} />
-								<Text>Dashboard</Text>
+								<Text size={'md'}>Dashboard</Text>
 							</Group>
 						</a>
 					</Link>
@@ -48,11 +85,9 @@ const NewPost = (props: any) => {
 						iconWidth={42}
 						size={'xl'}
 						placeholder={'Title of the Blog Post'}
-						onChange={(e: any) => setDocumentTitle(e.target?.value)}
 						variant={'unstyled'}
 					/>
 					<Divider size={'xs'} mb={10} />
-					<Text size={'sm'}>last edited: {new Date().toString()}</Text>
 					<Space h={20} />
 					{/*  <!-- DROPZONE -->  */}
 					<Dropzone
@@ -95,8 +130,9 @@ const NewPost = (props: any) => {
 					/>
 					<Space h={20} />
 					<Divider size={'xs'} mb={10} />
+					<Text size={'sm'}>last edited: {new Date().toString()}</Text>
 					<RichText
-						value={value}
+						value={rteValue as string}
 						onChange={onChange}
 						className={styles['NewPost__rte']}
 						sticky
@@ -113,8 +149,9 @@ const NewPost = (props: any) => {
 						size={'md'}
 						radius={'md'}
 						variant={'outline'}
-						color={'violet'}
-						leftIcon={<IconSend />}>
+						color={'dark.1'}
+						leftIcon={<IconSend />}
+						onSubmit={() => insertPostIntoDB()}>
 						Submit Post
 					</Button>
 				</Stack>

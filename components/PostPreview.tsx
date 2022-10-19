@@ -4,14 +4,13 @@ import {
 	Badge,
 	Card,
 	Center,
-	Divider,
 	Group,
 	Image,
 	Text,
 	Tooltip,
 	useMantineTheme,
 } from '@mantine/core';
-import { IconBookmark, IconSettings, IconPencilPlus, IconWriting } from '@tabler/icons';
+import { IconTrash, IconSettings, IconPencilPlus, IconWriting } from '@tabler/icons';
 
 import styles from '../styles/components/PostPreview.module.css';
 
@@ -58,7 +57,7 @@ const PostPreview = ({
 							key={index}
 							variant={'outline'}
 							className={styles['PostPreview__tag']}
-							color={'violet.4'}
+							color={'dark.1'}
 							size="md">
 							{tag}
 						</Badge>
@@ -89,20 +88,22 @@ const PostPreview = ({
 					<Tooltip
 						label={'Post Settings'}
 						position={'bottom'}
-						color={'violet.7'}
+						color={'dark.7'}
 						offset={5}
 						m={12}
 						arrowSize={6}
 						withArrow>
 						<ActionIcon className={styles['PostPreview__action']}>
-							<IconSettings size={16} color={theme.colors.dark[1]} />
+							<IconPencilPlus size={16} color={theme.colors.indigo[4]} />
 						</ActionIcon>
 					</Tooltip>
 					<ActionIcon className={styles['PostPreview__action']}>
-						<IconBookmark size={16} color={theme.colors.yellow[4]} />
+						<IconSettings size={16} color={theme.colors.dark[1]} />
 					</ActionIcon>
-					<ActionIcon className={styles['PostPreview__action']}>
-						<IconPencilPlus size={16} />
+					<ActionIcon
+						className={styles['PostPreview__action']}
+						color={theme.colors.red[1]}>
+						<IconTrash size={16} color={theme.colors.red[5]} />
 					</ActionIcon>
 				</Group>
 				{draft && (

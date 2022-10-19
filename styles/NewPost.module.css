@@ -1,7 +1,7 @@
 .NewPost {
 	overflow-x: hidden;
-	min-height: 100vh;
-	min-width: 100vw;
+	height: 100vh;
+	width: 100vw;
 	background-image: radial-gradient(
 		at top left,
 		var(--mantine-color-dark-4) 0%,
@@ -17,7 +17,7 @@
 	outline: none;
 }
 .NewPost__dashboard {
-	color: var(--mantine-color-violet-4);
+	color: var(--mantine-color-dark-4);
 	font-size: 14px;
 }
 .NewPost__dashboard:hover {
@@ -29,6 +29,7 @@
 	background-color: transparent;
 }
 .NewPost__stack {
+	margin-top: 40px;
 	padding: 20px;
 	width: 800px;
 }

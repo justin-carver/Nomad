@@ -12,7 +12,7 @@
   <h3 align="center">Nomad</h3>
 
   <p align="center">
-    A lightweight, customizable, single-author blogging CMS<br />built on Next.js, postgreSQL, and the Mantine component library.
+    A lightweight, customizable, single author blogging CMS<br />built on Next.js, postgreSQL, and the Mantine component library.
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -25,17 +25,20 @@
   </p>
 </div>
 
--   [About The Project](#about-the-project)
-    -   [Features](#features)
-    -   [Built With](#built-with)
-    -   [Installation](#installation)
--   [Usage](#usage)
--   [Roadmap](#roadmap)
--   [Contributing](#contributing)
--   [FAQ](#faq)
--   [Project / Fork Ideas](#project--fork-ideas)
--   [License](#license)
--   [Contact](#contact)
+- [About The Project](#about-the-project)
+- [Screenshots](#screenshots)
+  - [Login Screen](#login-screen)
+- [Core Stack](#core-stack)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [FAQ](#faq)
+- [Project / Fork Ideas](#project--fork-ideas)
+- [Special Thanks](#special-thanks)
+- [License](#license)
+- [Contact](#contact)
 
 <!-- ABOUT THE PROJECT -->
 
@@ -43,9 +46,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Nomad is a lightweight, customizable, single-author blogging system built on `Next.js`, the `Mantine` component library, and `Framer Motion`. The core post database systems is built off `postgreSQL` with a `prisma` adapter, while using `next-auth` credentials alongside `encrypted JWTs` to handle administrative operations within the CMS.
+Nomad is a lightweight, customizable, single author blogging system built on `Next.js`, the `Mantine` component library, and `Framer Motion`. The core post database systems is built off `postgreSQL` with a `prisma` adapter, while using `next-auth` credentials alongside `encrypted JWTs` to handle administrative operations within the CMS.
 
-**What does single-author mean?** Nowadays, most CMS are designed with the complexity of introducing collaborators or enterprise level components and ideas; with in some cases, multiple authors attached to multiple newsletters. While this is great for small to large teams, there is a barrier of unnecessary configuration if you are a solo developer or a community leader. This project is for someone who is learning React or Next.js, or maybe someone who just wants a quick blog set up in a few clicks.
+**What does 'single author' mean?** Nowadays, most CMS are designed with the complexity of introducing collaborators or enterprise level components and ideas; with in some cases, multiple authors attached to multiple newsletters. While this is great for small to large teams, there is a barrier of unnecessary configuration if you are a solo developer or a community leader. This project is for someone who is learning React or Next.js, or maybe someone who just wants a quick blog set up in a few clicks.
 
 The purpose of this project is to help beginners understand systems design within full stack application for a blog that supports one author. Nomad is simple and intuitive, yet teaches basic DevOps concepts and full stack fundamentals. This repo will serve as a teaching point to those looking to learn:
 
@@ -61,7 +64,15 @@ The purpose of this project is to help beginners understand systems design withi
 
 This application is still in a beta phase, so I apologize for any inconvenience or downtime! At it's current state, there should be no threat between upgrading versions.
 
-### Core Stack
+## Screenshots
+
+Please note, the project's designs, colors, and typography choices are not final are subject to change. Some instances throughout the project may not not reflect design consistency and are constantly being improved during this stage of development.
+
+### Login Screen
+
+![Login Screen](https://i.imgur.com/ujevGSZ.png)
+
+## Core Stack
 
 [![Next][next.js]][next-url]
 [![React][react.js]][react-url]
@@ -71,7 +82,7 @@ This application is still in a beta phase, so I apologize for any inconvenience 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Features
+## Features
 
 List of features available within this CMS. Some features may not be present currently, but if listed, are on the planned route of completion before first release:
 
@@ -86,7 +97,7 @@ List of features available within this CMS. Some features may not be present cur
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Installation
+## Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
@@ -164,6 +175,12 @@ I would **not** use only a password-based system for any important, scalable aut
 
 There is not a lot of setup to get this going, and you definitely can use this CMS 'out of the box' after cloning/forking the repo. Once downloaded, either start the server using `yarn dev` or `yarn start` after making sure to run `yarn install` to install/upgrade your dependencies, and verifying your local postgreSQL database, and `.env.local` files are created and setup properly. Once configured, follow the steps in the [usage](#usage) category above to begin posting.
 
+If you are using something like Vercel, you can fork the repo and begin the process of configuring the front end. You will still have to manually configure a `postgresql` database, but that's where the fun begins. :)
+
+**3. What about Database Management?**
+
+Since this project is built on the premise of a single author, there is thankfully not very much that is needed to manage the database once spun up. After the tables are created, and blogs can successfully be created and deleted, the database can be left alone and will perform great as needed. With a single author, there is not a big need for connection pooling, key rotation, or much else that you would find in a larger organization. **Though keep in mind, it is still _very_ important to monitor security, performance, connection attempts, backups, etc.**
+
 <!-- Project Ideas -->
 
 ## Project / Fork Ideas
@@ -178,6 +195,7 @@ Here are some great ideas that will make this project even more interesting, and
 6. Convert the relational database into a NoSQL solution like MongoDB or Cassandra.
 7. Create and import custom components into the Quill editor and toolbar.
 8. Design a "Featured Story/Post" section on the front page.
+9. Create a notification system using [socket.io](https://socket.io/) to get live alerts of people liking or sharing posts.
 
 <!-- SPECIAL THANKS -->
 

@@ -17,6 +17,7 @@ import {
 
 import styles from '../../styles/components/NavigationBar.module.css';
 import DashboardProfile from './DashboardProfile';
+import SettingsModal from './SettingsModal';
 
 interface NavbarLinkProps {
 	icon: TablerIcon;
@@ -31,6 +32,7 @@ const NavbarLink = ({ icon: Icon, label, onClick }: NavbarLinkProps) => {
 			className={styles['NavigationBar__tooltip']}
 			label={label}
 			position="right"
+			offset={30}
 			transitionDuration={0}
 			color={'dark.5'}>
 			<UnstyledButton onClick={onClick} className={styles['NavigationBar__button']}>
@@ -50,7 +52,7 @@ const mockdata = [
 
 const NavigationBar = () => {
 	const [active, setActive] = useState(2);
-	// const Router = useRouter();
+	const [settingsModal, setSettingsModal] = useState(false);
 
 	const links = mockdata.map((link, index) => (
 		<NavbarLink {...link} key={link.label} active={true} onClick={() => setActive(index)} />
@@ -68,7 +70,11 @@ const NavigationBar = () => {
 					</Navbar.Section>
 					<Navbar.Section>
 						<Stack justify={'center'} spacing={15} align={'center'}>
-							<NavbarLink icon={IconSettings} label="Settings" onClick={() => {}} />
+							<NavbarLink
+								icon={IconSettings}
+								label="Settings"
+								onClick={() => setSettingsModal(true)}
+							/>
 							<NavbarLink
 								icon={IconLogout}
 								label="Logout"
@@ -79,6 +85,7 @@ const NavigationBar = () => {
 				</Navbar>
 			</Box>
 			<Box className={styles['NavigationBar__shadowHelper']}></Box>
+			<SettingsModal opened={settingsModal} setOpened={setSettingsModal} />
 		</Box>
 	);
 };
